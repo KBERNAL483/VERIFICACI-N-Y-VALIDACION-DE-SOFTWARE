@@ -8,11 +8,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import mx.com.vafis.puntodeventa.Usuario;
 
+package com.mycompany.puntodeventa;
 
+/**
+ *
+ * @author kaleb
+ */
 public class UsuarioDAO {
     public void crearUsuario(Usuario usuario){
         String sql = "INSERT INTO usuarios(nombre, correo, contra, rol) VALUES(?, ?, ?, ?)";
-        
+    
         Connection conexion = ConexionSQLite.conectar();
         
         try (PreparedStatement pstmt = conexion.prepareStatement(sql)){
@@ -31,7 +36,7 @@ public class UsuarioDAO {
             
                 System.err.println("El correo ya existe");
                 return;
-        } 
+}
     }
     
     public List<Usuario> leerTodosLosUsuarios(){

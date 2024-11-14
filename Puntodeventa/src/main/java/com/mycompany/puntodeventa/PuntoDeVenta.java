@@ -10,6 +10,7 @@ public class PuntoDeVenta {
 
     public static void main(String[] args) {
         ConexionSQLite.conectar();
+        Connection conexion = ConexioSQLite.conectar();
         
         UsuarioDAO usuarioDao = new UsuarioDAO();
         
