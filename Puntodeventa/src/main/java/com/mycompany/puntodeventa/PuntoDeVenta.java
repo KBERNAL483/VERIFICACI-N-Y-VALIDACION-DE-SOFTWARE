@@ -1,9 +1,10 @@
 
 package com.mycompany.puntodeventa;
 
+import java.sql.Connection;
 import java.util.List;
-import mx.com.vafis.puntodeventa.database.ConexionSQLite;
-import mx.com.vafis.puntodeventa.database.UsuarioDAO;
+
+
 
 
 public class PuntoDeVenta {
