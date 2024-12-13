@@ -1,5 +1,6 @@
-
+    
 package com.mycompany.puntodeventa;
+
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -16,7 +17,7 @@ public class UsuarioTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Usuario instance = new Usuario(9, "Keyla", "kbernal@ucgdl.edu.mx" ,"Bernal", "admin");
+        Usuario instance = new Usuario(9, "Keyla Bernal", "kbernal@ucgdl.edu.mx" ,"12345", "admin");
         int expResult = 9;
         int result = instance.getId();
         assertEquals(expResult, result);

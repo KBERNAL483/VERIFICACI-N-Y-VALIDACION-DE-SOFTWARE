@@ -11,13 +11,19 @@ import java.util.Scanner;
  * @author kaleb
  */
 public class MainMenu {
-     private final String printMenu = "\n\n\n\n\n          MENU         "
-            + "\n1) Empleados"
-            + "\n2) Provedores"
-            + "\n3) Ctalogo"
-            + "\n4) Invetario"
-            + "\n5) Reportes"
-            + "\n\nX) Salir";
+     private final String PREFIX = "\n".repeat(25);
+    
+    private final String printMenu = """
+                                               MENU         
+                                     
+                                     1) Empleados
+                                     2) Provedores
+                                     3) Catalogo
+                                     4) Invetario
+                                     5) Reportes
+                                     
+                                     
+                                     X) Salir""";
     
     public void MainMenuLoop(){
         
@@ -25,7 +31,7 @@ public class MainMenu {
         
         // Crear loop de eventos
         do{
-            System.out.println(printMenu);
+            System.out.println(PREFIX + printMenu);
             System.out.print("\n\nSelecciona una opción: ");
             String seleccion = obtenerSeleccion();
             
@@ -68,5 +74,4 @@ public class MainMenu {
         return kb.nextLine();
     }
 }
-    
 

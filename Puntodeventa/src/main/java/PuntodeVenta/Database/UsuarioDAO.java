@@ -1,3 +1,7 @@
+
+package PuntodeVenta.Database;
+
+import com.mycompany.puntodeventa.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,16 +12,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-package com.mycompany.puntodeventa;
-
 /**
  *
  * @author kaleb
  */
 public class UsuarioDAO {
-    public void crearUsuario(Usuario usuario){
-        String sql = "INSERT INTO usuarios(nombre, correo, contra, rol) VALUES(?, ?, ?, ?)";
+Connection conexion;
     
+    public UsuarioDAO(Connection conexion){
+        this.conexion = conexion;
+    }
+    
+    public boolean crearUsuario(Usuario usuario){
+        String sql = "INSERT INTO usuarios(nombre, correo, contra, rol) VALUES(?, ?, ?, ?)";
+        
         Connection conexion = ConexionSQLite.conectar();
         
         try (PreparedStatement pstmt = conexion.prepareStatement(sql)){
@@ -29,14 +37,13 @@ public class UsuarioDAO {
             pstmt.executeUpdate();
             
             System.out.println("Usuario registrado: " + usuario.getNombre());
-            
+            return true;
             
         } catch (SQLException ex) {
             //Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            
-                System.err.println("El correo ya existe");
-                return;
-}
+            System.err.println("El correo ya existe");
+            return false;
+        } 
     }
     
     public List<Usuario> leerTodosLosUsuarios(){
@@ -108,7 +115,7 @@ public class UsuarioDAO {
         }
     }
     
-    public void eliminarUsuario(int id){
+    public boolean eliminarUsuario(int id){
         
         String sql = "DELETE FROM usuarios WHERE id = ?";
         
@@ -120,10 +127,11 @@ public class UsuarioDAO {
             
             pstmt.executeUpdate();
             
+            return true;
+            
         } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            // Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
-}
-    
 }

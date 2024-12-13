@@ -1,5 +1,5 @@
 
-package com.mycompany.puntodeventa;
+package PuntodeVenta.Database;
 
 
 import java.sql.Connection;
